@@ -1,1 +1,26 @@
 ''' MFA Project test 1'''
+def advanced_password():
+    flag = 0
+    username = input("Enter Username: ")
+    password = input("Enter Password: ")
+    if (password.islower() is False) and (password.isalnum() is False) and (password.isspace() is False) and (len(password) >= 8):
+        has_number = False
+        for char in password:
+            if not char.isnumeric():
+                has_number = True
+                break
+        if has_number is True:
+            flag = 1
+        elif has_number is False:
+            print("make sure your password is more than 8 characters and has a capital letter, a number, a special character and no spaces in them")
+            advanced_password()
+    if flag == 1:
+        userbase = {"Username": username,
+                    "Password": password}
+        print(userbase)
+    if flag == 0:
+        print("make sure your password is more than 8 characters and has a capital letter, a number, a special character and no spaces in them")
+        advanced_password()
+
+
+advanced_password()
