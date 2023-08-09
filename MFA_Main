@@ -24,3 +24,25 @@ def advanced_password():
 
 
 advanced_password()
+
+'''GUI code'''
+def logingui():
+    import tkinter as tk
+    ParentWindow = tk.Tk(className="Python Project")
+    ParentWindow.geometry("600x250")
+    main_frame = tk.Frame(ParentWindow, width=600, height=250)
+    main_frame.pack(fill=tk.BOTH,side=tk.LEFT,expand=True)
+    user_label = tk.Label(master=main_frame, text="Username")
+    user_label.pack(pady=10)
+    user_entry = tk.Entry(master=main_frame)
+    user_entry.pack(pady=10)
+    pass_label = tk.Label(master=main_frame, text="Password")
+    pass_label.pack(pady=10)
+    pass_entry = tk.Entry(master=main_frame, show="*")
+    pass_entry.pack(pady=10)
+    error_label = tk.Label(master=main_frame, text="Error", fg="Red")
+    error_label.pack(pady=10)
+    login_button = tk.Button(master=main_frame, text="Login")
+    login_button.pack(pady=10)
+    tk.mainloop()
+logingui()
