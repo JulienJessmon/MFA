@@ -46,3 +46,28 @@ def logingui():
     login_button.pack(pady=10)
     tk.mainloop()
 logingui()
+
+'''Time-based Authentication'''
+def Time():
+  import datetime
+  current_datetime=datetime.datetime.now()    #Check System Clock Synchronization
+  curr_hr=current_datetime.hour
+  curr_min=current_datetime.minute
+  current_date=datetime.date.today()
+  current_year = current_date.year
+  current_month = current_date.month
+  current_day = current_date.day
+  hour=int(input("\nEnter the usual hour:"))
+  min=int(input("\nEnter the usual hour:"))
+  time1=datetime.datetime(current_year,current_month,current_day,curr_hr,curr_min)
+  time2=datetime.datetime(current_year,current_month,current_day,(hour+1)%24,(min+30)%60) #cut him some slack....like 30 mins
+  time3=datetime.datetime(current_year,current_month,current_day,hour,min)
+  time4=datetime.datetime(current_year,current_month,current_day,(hour-1)%24,(min+30)%60)
+
+  if(time1>time2):
+    print("\nAccess Denied")
+  elif(time1>=time4 and time1<=time2):
+    print("\nWelcome")
+  else:
+    print("\nGet the hell out!")
+Time()
